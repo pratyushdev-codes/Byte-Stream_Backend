@@ -9,7 +9,7 @@ const dbConnection = async () => {
         console.log("Connected to DB Successfully");
     } catch (error) {
         console.error("Error connecting to DB:", error);
-    }
+    } 
 };
 
 // Optionally, export the connection function if you need to use it elsewhere

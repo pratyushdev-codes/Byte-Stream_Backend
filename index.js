@@ -7,14 +7,15 @@ import bodyParser from 'body-parser'
 
 //Security Packages
 import helment from'helmet'
-import dbConnection from "./dbConfig/index"
+import dbConnection from '../server/dbConfig/index'
+
 
 dotenv.config
 
 const app = express()
 
-const PORT = process.env.PORT || 8800;
-dbConnection();
+const PORT = process.env.PORT || 3000;
+dbConnection
 
 app.use(helment());
 app.use(cors());
