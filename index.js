@@ -7,7 +7,9 @@ import bodyParser from 'body-parser'
 
 //Security Packages
 import helment from'helmet'
-import dbConnection from '../server/dbConfig/index'
+import dbConnection from './dbConfig'
+
+
 
 
 dotenv.config
@@ -15,7 +17,7 @@ dotenv.config
 const app = express()
 
 const PORT = process.env.PORT || 3000;
-dbConnection
+
 
 app.use(helment());
 app.use(cors());
@@ -26,6 +28,8 @@ app.use(express.urlencoded({extended:true}))
 
 
 app.use(morgan("dev"));
+
+dbConnection
 
 
 app.listen(PORT,()=>{
