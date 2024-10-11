@@ -1,5 +1,6 @@
+import { use } from "express/lib/application";
 import Users from "../models/userModel";
-
+import { hashString } from "../utils";
 
 export const register = async(req, res, next)=>{
     const {firstName , lastName , email , password}= req.body;
@@ -19,6 +20,18 @@ export const register = async(req, res, next)=>{
         }
 
         const hashedPassword = await hashedPassword(password);
+
+        const user = await Users.create({
+            firstName , 
+            lastName,
+            email,
+            password:hashedPassword,
+        })
+
+
+        //Send verification email to user
+        sendVerificationEmail(user, res),     
+
 
     }catch(error){
      console.log(error);
