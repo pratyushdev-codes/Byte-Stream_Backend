@@ -8,6 +8,8 @@ import bodyParser from 'body-parser'
 //Security Packages
 import helment from'helmet'
 import dbConnection from './dbConfig/dbConnection.js'
+import middlewareWrapper from 'cors'
+import errorMiddleware from './middleware/errorMiddleware.js'
 
 
 
@@ -28,6 +30,10 @@ app.use(express.urlencoded({extended:true}))
 
 
 app.use(morgan("dev"));
+
+
+//error middleware
+app.use(errorMiddleware)
 
 dbConnection();
 
