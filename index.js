@@ -15,7 +15,7 @@ import route  from './routes/mainRoutes.js'
 
 
 
-dotenv.config
+dotenv.config();
 
 const app = express()
 
