@@ -1,4 +1,4 @@
-import express from 'express'
+import express, { Router } from 'express'
 import dotenv from 'dotenv'
 import cors from 'cors'
 import morgan from 'morgan'
@@ -10,6 +10,7 @@ import helment from'helmet'
 import dbConnection from './dbConfig/dbConnection.js'
 import middlewareWrapper from 'cors'
 import errorMiddleware from './middleware/errorMiddleware.js'
+import route  from './routes/mainRoutes.js'
 
 
 
@@ -18,9 +19,9 @@ dotenv.config
 
 const app = express()
 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8800;
 
-
+ 
 app.use(helment());
 app.use(cors());
 app.use(bodyParser.json());
@@ -30,6 +31,8 @@ app.use(express.urlencoded({extended:true}))
 
 
 app.use(morgan("dev"));
+app.use(route)
+
 
 
 //error middleware
