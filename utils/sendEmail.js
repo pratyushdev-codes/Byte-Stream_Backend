@@ -10,12 +10,20 @@ dotenv.config();
 const { AUTH_EMAIL, AUTH_PASSWORD, APP_URL } = process.env;
 
 let transporter = nodemailer.createTransport({
-  host: "smtp-mail.outlook.com",
+
+  host: 'smtp.gmail.com', // Correct SMTP host for Gmail
+  port: 465, // For SSL
+  secure: true, // Use SSL
   auth: {
-    user: AUTH_EMAIL,
-    pass: AUTH_PASSWORD,
+    user: AUTH_EMAIL, // Replace with your actual email
+    pass: AUTH_PASSWORD, // Replace with your actual password or app-specific password
   },
+  // tls: {
+  //   ciphers: 'TLSv1.2', // Updated to a more secure cipher
+  //   // rejectUnauthorized: false, // Optional: Use with caution
+  // },
 });
+
 
 export const sendVerificationEmail = async (user, res) => {
   const { _id, email, lastName } = user;

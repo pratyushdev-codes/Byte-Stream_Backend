@@ -23,7 +23,7 @@ export const verifyEmail = async (req, res) => {
               .then(() => {
                 const message = "Verification token has expired.";
                 res.redirect(`/users/verified?status=error&message=${message}`);
-              })
+              }) 
               .catch((err) => {
                 res.redirect(`/users/verified?status=error&message=`);
               });

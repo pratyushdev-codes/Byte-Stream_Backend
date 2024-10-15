@@ -10,7 +10,7 @@ import helment from'helmet'
 import dbConnection from './dbConfig/dbConnection.js'
 import middlewareWrapper from 'cors'
 import errorMiddleware from './middleware/errorMiddleware.js'
-import route  from './routes/mainRoutes.js'
+import route  from './routes/mainRoute.js'
 
 
 
