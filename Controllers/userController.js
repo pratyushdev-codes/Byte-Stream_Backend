@@ -92,7 +92,7 @@ export const requestPasswordReset = async (req, res) => {
       if (existingRequest.expiresAt > Date.now()) {
         return res.status(201).json({
           status: "PENDING",
-          message: "Reset password link has already been sent tp your email.",
+          message: "Reset password link has already been sent to your email.",
         });
       }
       await PasswordReset.findOneAndDelete({ email });
