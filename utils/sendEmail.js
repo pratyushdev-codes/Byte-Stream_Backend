@@ -11,16 +11,16 @@ const { AUTH_EMAIL, AUTH_PASSWORD, APP_URL } = process.env;
 
 let transporter = nodemailer.createTransport({
 
-  host: 'smtp.gmail.com', // Correct SMTP host for Gmail
-  port: 465, // For SSL
-  secure: true, // Use SSL
+  host: 'smtp.gmail.com', 
+  port: 465, 
+  secure: true, 
   auth: {
-    user: AUTH_EMAIL, // Replace with your actual email
-    pass: AUTH_PASSWORD, // Replace with your actual password or app-specific password
+    user: AUTH_EMAIL, 
+    pass: AUTH_PASSWORD, 
   },
   // tls: {
-  //   ciphers: 'TLSv1.2', // Updated to a more secure cipher
-  //   // rejectUnauthorized: false, // Optional: Use with caution
+  //   ciphers: 'TLSv1.2', 
+
   // },
 });
 

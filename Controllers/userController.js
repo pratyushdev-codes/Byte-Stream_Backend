@@ -362,7 +362,7 @@ export const acceptRequest = async (req, res, next) => {
       success: false,
       error: error.message,
     });
-  }
+  }2
 };
 
 export const profileViews = async (req, res, next) => {
