@@ -37,6 +37,7 @@ app.use(route)
 
 //error middleware
 app.use(errorMiddleware)
+app.use(express.static(path.join(__dirname, "Views")));
 
 dbConnection();
 
