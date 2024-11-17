@@ -10,7 +10,7 @@ import { fileURLToPath } from 'url';
 import helmet from 'helmet';
 import dbConnection from './dbConfig/dbConnection.js';
 import errorMiddleware from './middleware/errorMiddleware.js';
-import route from './routes/mainRoute.js';
+import route from './routes/index.js';
 
 dotenv.config();
 

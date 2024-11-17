@@ -2,38 +2,28 @@ import express from 'express';
 import userAuth from '../middleware/authMiddleware.js';
 import {commentPost, createPost, deletePost, getComments, getPost, getUserPost, likePost, likePostComment, replyPostComment} from'../Controllers/postController.js'
 
-
 const router = express.Router();
+//Create a New Post
+router.post('/create-post', userAuth, createPost);
 
-//creating post :-
-router.post("/create-post",userAuth,createPost);
+// Get posts
+router.post("/", userAuth, getPost);//Get all Posts with search parameters as optional
+router.post("/:id", userAuth, getPost);//Get Specific Post
+router.post("/get-user-post/:id", userAuth, getUserPost);//Get Posts which are posted by a specific User
 
-//get post:-
-router.post("/get-post",userAuth,createPost);
+//Like or Unlike a Post
+router.post("/like/:postId", userAuth, likePost);
 
-//fetch post
-router.post("/",userAuth, getPost);
+//delete post
+router.delete("/:id", userAuth, deletePost);
 
+//Comment Routes
+router.get("/comments/:postId", getComments);//Get All Comments on a Post
 
-router.post("/get-user-post/:id", userAuth, getUserPost);
+router.post("/comment/:id", userAuth, commentPost);//Comment on a Post
 
+router.post("/like-comment/:id/:rid?", userAuth, likePostComment);//reply id is optional that's why written with ?
 
-//get comments 
-router.get("/comments/:postId", getComments);
+router.post("/reply-comment/:id", userAuth, replyPostComment);//Reply to a Comment on a post with a comment
 
-
-//Like and comment on posts
-router.post("/like/:id", userAuth, likePost);
-
-router.post("/like-comment/:id/:rid?", userAuth , likePostComment);
-
-router.post("'comment/:id", userAuth , commentPost);
-
-router.post("/reply-comment/:id", userAuth , replyPostComment);
-
-
-
-//Delete Post
-router.delete("/:id" , userAuth , deletePost);
-
-export default router
+export default router;
