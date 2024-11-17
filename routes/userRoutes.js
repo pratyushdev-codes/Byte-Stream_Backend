@@ -22,7 +22,7 @@ const __dirname = path.resolve(path.dirname(""));
 
 router.get('/verify/:userId/:token', verifyEmail);
 router.get("/verified", (req, res) => {
-  res.sendFile(path.join(__dirname, "./Views", "index.html"));
+  res.sendFile(path.join(__dirname, "./views", "index.html"));
 });
 
 router.post('/request-passwordreset', requestPasswordReset)

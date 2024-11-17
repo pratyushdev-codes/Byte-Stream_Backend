@@ -7,7 +7,7 @@ export const hashString = async (useValue) => {
   const hashedpassword = await bcrypt.hash(useValue, salt);
   return hashedpassword;
 };
-
+ 
 export const compareString = async (userPassword, password) => {
   const isMatch = await bcrypt.compare(userPassword, password);
   return isMatch; 
@@ -16,6 +16,6 @@ export const compareString = async (userPassword, password) => {
 //JSON WEBTOKEN
 export function createJWT(id) {
   return JWT.sign({ userId: id }, process.env.JWT_SECRET_KEY, {
-    expiresIn: "1d",
+    expiresIn: "1d", 
   });
 }
