@@ -1,15 +1,16 @@
 import express from 'express';
 import userAuth from '../middleware/authMiddleware.js';
-import {commentPost, createPost, deletePost, getComments, getPost, getUserPost, likePost, likePostComment, replyPostComment} from'../Controllers/postController.js'
+import {commentPost, createPost, deletePost, getComments, getPosts, getUserPost, likePost, likePostComment, replyPostComment} from'../Controllers/postController.js'
 
 const router = express.Router();
+
 //Create a New Post
 router.post('/create-post', userAuth, createPost);
 
 // Get posts
-router.post("/", userAuth, getPost);//Get all Posts with search parameters as optional
-router.post("/:id", userAuth, getPost);//Get Specific Post
-router.post("/get-user-post/:id", userAuth, getUserPost);//Get Posts which are posted by a specific User
+router.post("/", userAuth, getPosts); // Note the 's'//Get all Posts with search parameters as optional
+router.post("/:id", userAuth, getPosts);
+router.post("/get-user-post/:id", userAuth, getUserPost);
 
 //Like or Unlike a Post
 router.post("/like/:postId", userAuth, likePost);
