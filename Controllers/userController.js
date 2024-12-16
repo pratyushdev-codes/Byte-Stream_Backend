@@ -1,10 +1,9 @@
-import mongoose from "mongoose";
-import Verification from "../models/emailVerification.js";
-import Users from "../models/userModel.js";
-import { compareString, createJWT, hashString } from "../utils/index.js";
-import PasswordReset from "../models/PasswordReset.js";
-import { resetPasswordLink } from "../utils/sendEmail.js";
-import FriendRequest from "../models/friendRequest.js";
+import Verification from "../Models/emailVerification.js";
+import { compareString, createJWT, hashString } from "../Utils/index.js";
+import Users from "../Models/userModel.js";
+import friendRequest from "../Models/friendRequest.js";
+import PasswordReset from "../Models/passwordReset.js";
+import { resetPasswordLink } from "../Utils/sendEmail.js";
 
 export const verifyEmail = async (req, res) => {
   const { userId, token } = req.params;
@@ -246,7 +245,7 @@ export const updateUser = async (req, res, next) => {
   }
 };
 
-export const friendRequest = async (req, res, next) => {
+export const FriendRequest = async (req, res, next) => {
   try {
     const { userId } = req.body.user;
 
